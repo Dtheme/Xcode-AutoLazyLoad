@@ -57,8 +57,3 @@ OSX 10.12可能本来就看不到这个选项，需要运行sudo spctl --master-
 **License:**
 
 [![npm](https://img.shields.io/npm/l/express.svg?style=flat-square)]()
-
-**create by dzw**
-
-
-
