@@ -3,6 +3,8 @@
 ## Autolazyload使用
 
 
+在Xcode toolbar中选中edit，选中指定行的代码，执行指定的插件指令。
+
 [![npm](https://github.com/Dtheme/AutoLazyLoad/blob/master/gif116.gif?raw=true)]()
 
 Xcode 8的插件是以扩展的形式使用的，类似于sifari插件的形式。
@@ -48,7 +50,7 @@ OSX 10.12可能本来就看不到这个选项，需要运行sudo spctl --master-
 
 > 插件的名字 :`XCSourceEditorCommandName`
 > 标识符:`XCSourceEditorCommandIdentifier`
->自定义类名:`XCSourceEditorCommandClassName` 
+> 自定义类名:`XCSourceEditorCommandClassName` 
 >
 >`XCSourceEditorExtensionPrincipalClass`对应插件的默认实现类:`SourceEditorExtension`。
 
