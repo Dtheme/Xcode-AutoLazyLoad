@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -653,7 +655,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider=""/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -679,10 +681,95 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MN-lB-CSA">
+                                <rect key="frame" x="335" y="184" width="105" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Je4-40-ge0"/>
+                                    <constraint firstAttribute="width" constant="101" id="XL5-Pm-bSW"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="--01.AutoLazyload" id="3cW-fC-90m">
+                                    <font key="font" metaFont="system" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgU-vs-K3O">
+                                <rect key="frame" x="14" y="20" width="453" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="449" id="A02-4h-du1"/>
+                                    <constraint firstAttribute="height" constant="17" id="vnS-sG-Gnc"/>
+                                </constraints>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title=" Copyright (c) 2017 dzw. All rights reserved." id="gO4-rT-Zxl">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nz1-WJ-kbL">
+                                <rect key="frame" x="151" y="184" width="178" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="NUP-cl-mAT"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="lazy_icon1" id="G2B-z8-DWt"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Peo-rZ-lj1">
+                                <rect key="frame" x="2" y="154" width="465" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="HDW-4B-ryp"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="1. This Xcode extension is made for Objc &amp; swift property lazyload." id="QWd-z5-GZD">
+                                    <font key="font" metaFont="system" size="14"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeH-KV-bTJ">
+                                <rect key="frame" x="14" y="124" width="453" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="EtN-XB-u6M"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2. To create lazy loading， that need to select properties, run the plug-in." id="PzI-kN-2XC">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBo-No-7Hs">
+                                <rect key="frame" x="14" y="94" width="453" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="PyD-Rv-jZt"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="3. You can create shortcut on Xcode preferance setting." id="oLj-hU-6E4">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vBo-No-7Hs" secondAttribute="trailing" constant="15" id="35B-cT-Lmf"/>
+                            <constraint firstItem="1MN-lB-CSA" firstAttribute="leading" secondItem="Nz1-WJ-kbL" secondAttribute="trailing" constant="8" id="BCn-mF-XrY"/>
+                            <constraint firstItem="Nz1-WJ-kbL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="11" id="C2e-0b-sf3"/>
+                            <constraint firstAttribute="trailing" secondItem="Nz1-WJ-kbL" secondAttribute="trailing" constant="151" id="CR8-TR-Aeo"/>
+                            <constraint firstItem="EeH-KV-bTJ" firstAttribute="top" secondItem="Peo-rZ-lj1" secondAttribute="bottom" constant="8" id="D22-OB-qfG"/>
+                            <constraint firstAttribute="trailing" secondItem="EeH-KV-bTJ" secondAttribute="trailing" constant="15" id="EhT-fP-AGx"/>
+                            <constraint firstItem="vBo-No-7Hs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="HLn-m6-zAZ"/>
+                            <constraint firstItem="Peo-rZ-lj1" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="4" id="Hxe-y5-v98"/>
+                            <constraint firstAttribute="trailing" secondItem="Peo-rZ-lj1" secondAttribute="trailing" constant="15" id="Is4-5K-zNo"/>
+                            <constraint firstAttribute="trailing" secondItem="fgU-vs-K3O" secondAttribute="trailing" constant="15" id="N9d-7H-Y4Q"/>
+                            <constraint firstItem="EeH-KV-bTJ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="Nsp-ha-9XM"/>
+                            <constraint firstItem="fgU-vs-K3O" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="PAC-rD-mcz"/>
+                            <constraint firstItem="Nz1-WJ-kbL" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="151" id="TkH-tf-1Y3"/>
+                            <constraint firstItem="vBo-No-7Hs" firstAttribute="top" secondItem="EeH-KV-bTJ" secondAttribute="bottom" constant="13" id="U6e-ws-4nP"/>
+                            <constraint firstItem="1MN-lB-CSA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="62" id="gIR-uH-pSO"/>
+                            <constraint firstItem="Peo-rZ-lj1" firstAttribute="top" secondItem="Nz1-WJ-kbL" secondAttribute="bottom" constant="8" id="n4F-mD-hxp"/>
+                            <constraint firstAttribute="bottom" secondItem="fgU-vs-K3O" secondAttribute="bottom" constant="20" id="tUg-Ta-Tg4"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -690,4 +777,7 @@
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lazy_icon1" width="100" height="100"/>
+    </resources>
 </document>
