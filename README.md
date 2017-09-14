@@ -3,7 +3,7 @@
 ## Autolazyload使用
 
 
-[![npm](AutoLazyLoad/gif116.gif)]()
+[![npm](https://github.com/Dtheme/AutoLazyLoad/blob/master/gif116.gif?raw=true)]()
 
 Xcode 8的插件是以扩展的形式使用的，类似于sifari插件的形式。
 ，在mac中以.app的形式安装，在系统偏好设置-扩展中-选中已经安装的
