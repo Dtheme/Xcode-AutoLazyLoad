@@ -693,7 +693,7 @@
                                     <constraint firstAttribute="width" constant="101" id="XL5-Pm-bSW"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="--01.AutoLazyload" id="3cW-fC-90m">
-                                    <font key="font" metaFont="system" size="11"/>
+                                    <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -739,8 +739,8 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBo-No-7Hs">
-                                <rect key="frame" x="14" y="94" width="453" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBo-No-7Hs">
+                                <rect key="frame" x="14" y="99" width="453" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="PyD-Rv-jZt"/>
                                 </constraints>
