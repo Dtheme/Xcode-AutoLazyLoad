@@ -11,7 +11,7 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
     AdaptLanguageTargetObjc,
     AdaptLanguageTargetSwift,
     AdaptLanguageTargetOther
-};
+}; 
 
 @interface SourceEditorCommand ()
 
@@ -24,9 +24,9 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
 - (void)performCommandWithInvocation:(XCSourceEditorCommandInvocation *)invocation completionHandler:(void (^)(NSError * _Nullable nilOrError))completionHandler
 {
 
-    NSLog(@"跑一个看看");
+//    NSLog(@"跑一个看看");
     self.invocation = invocation;
-    NSLog(@"%@",invocation.buffer.lines);
+//    NSLog(@"%@",invocation.buffer.lines);
     for (XCSourceTextRange *range in self.invocation.buffer.selections) {
         NSInteger startLine = range.start.line;
         NSInteger endLine   = range.end.line;
@@ -39,22 +39,21 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
             }
             AdaptLanguageTarget target = [self typeJudgeWithString:string];
             if (target == AdaptLanguageTargetOther) {
-                NSLog(@"不知道目标语言是什么");
+//                NSLog(@"不知道目标语言是什么");
                 continue;
             }
             NSString * getterResult =@"";
             //objc
             if (target == AdaptLanguageTargetObjc) {
-                NSLog(@"目标语言是OC");
+//                NSLog(@"目标语言是OC");
                 getterResult = [self createObjcGetter:string];
-                NSLog(@"%@",getterResult);
                 NSInteger implementationEndLine = [self findEndLine:self.invocation.buffer.lines selectionEndLine:endLine];
                 if (implementationEndLine <= 1) {
                     continue;
                 }
                 [self.invocation.buffer.lines insertObject:getterResult atIndex:implementationEndLine];
             }else{
-                NSLog(@"目标语言是Swift");
+//                NSLog(@"目标语言是Swift");
                 //swift
                 getterResult = [self createSwiftGetter:string];
                 if (!getterResult || [getterResult isEqualToString:@""]) {
@@ -83,11 +82,11 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
 - (AdaptLanguageTarget)typeJudgeWithString:(NSString *)string{
     
     if ([self targetString:string isContainString:@"@property"]) {
-        NSLog(@"1 oc");
+//        NSLog(@"1 oc");
         return AdaptLanguageTargetObjc;
     }
     if([self targetString:string isContainString:@"var "]){
-        NSLog(@"2 swift");
+//        NSLog(@"2 swift");
         return AdaptLanguageTargetSwift;
     }
     return AdaptLanguageTargetOther;
@@ -163,13 +162,13 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
 - (NSString *)targetString:(NSString *)string getStringWithOutSpaceBetweenString1:(NSString *)string1 string2:(NSString *)string2{
     NSRange range=[string rangeOfString:string1];
     if(range.location==NSNotFound){
-        NSLog(@"错误的格式或者对象");
+//        NSLog(@"错误的格式或者对象");
         return @"";
     }
     NSString * tempString = [string substringFromIndex:(range.location + range.length)];
     range = [tempString rangeOfString:string2];
     if(range.location==NSNotFound){
-        NSLog(@"错误的格式或者对象");
+//        NSLog(@"错误的格式或者对象");
         return @"";
     }
     tempString = [tempString substringToIndex:range.location];
@@ -191,7 +190,7 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
     NSRange LeftRange = [interfaceLine rangeOfString:@"("];
     NSRange classWithSpaceRange = NSMakeRange(interfaceRange.location + interfaceRange.length, interfaceLine.length - interfaceRange.length - interfaceRange.location - (interfaceLine.length - LeftRange.location));
     NSString * removeSpace = [interfaceLine substringWithRange:classWithSpaceRange];
-    NSLog(@"%@",removeSpace);
+//    NSLog(@"%@",removeSpace);
     NSString * classStr = [removeSpace stringByReplacingOccurrencesOfString:@" " withString:@""];
     BOOL kHasfindLine = NO;
     for (NSInteger i = endLine; i < lines.count; i++) {
