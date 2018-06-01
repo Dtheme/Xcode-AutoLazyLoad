@@ -1,5 +1,7 @@
 # Xcode-AutoLazyLoad
 
+[![npm](https://img.shields.io/npm/l/express.svg?style=flat-square)]()
+
 ## Xcode-AutoLazyLoad使用
 
 在Xcode toolbar中选中edit，选中指定行的代码，执行指定的插件指令。
@@ -60,8 +62,3 @@ OSX 10.12可能本来就看不到这个选项，需要运行sudo spctl --master-
 当你运行这段源码之后，会出现一个灰色Xcode，这个是为了让你知道有一个另外的进程在运行着你的扩展。你可以在新进程中测试你的扩展。可以在代码中添加log代码，这时候可以在原工程中看到打印的结果。       
 
 **拿去玩吧，觉得有意思给个star吧～**
-
-
-**License:**
-
-[![npm](https://img.shields.io/npm/l/express.svg?style=flat-square)]()
