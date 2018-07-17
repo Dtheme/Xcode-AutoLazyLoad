@@ -3,9 +3,7 @@
 
 ## Xcode-AutoLazyLoad使用
 
-在Xcode toolbar中选中edit，选中指定行的代码，执行指定的插件指令。
-
-[![npm](https://github.com/Dtheme/AutoLazyLoad/blob/master/gif116.gif?raw=true)]()
+打开Xcode工程，选中指定需要懒加载的那一行，在系统上面的toolbar中选中选择edit-AutoLazyLoad，执行指定的插件指令，或者在xcode的偏好设置中添加你喜欢的快捷键，选中需要懒加载的属性那一行快捷键生成属性的懒加载代码。
 
 Xcode 8的插件是以扩展的形式使用的，类似于sifari插件的形式。
 ，在mac中以.app的形式安装，在系统偏好设置-扩展中-选中已经安装的
