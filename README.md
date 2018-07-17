@@ -1,6 +1,6 @@
 # Xcode-AutoLazyLoad
 
-[![npm](https://img.shields.io/npm/l/express.svg?style=flat-square)]()
+[![npm](https://img.shields.io/packagist/l/doctrine/orm.svg)]()
 
 ## Xcode-AutoLazyLoad使用
 
