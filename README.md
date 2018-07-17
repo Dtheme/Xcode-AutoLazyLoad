@@ -2,6 +2,8 @@
 
 ![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
+![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?style=flat-square)
+
 ## Xcode-AutoLazyLoad使用
 
 在Xcode toolbar中选中edit，选中指定行的代码，执行指定的插件指令。
