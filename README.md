@@ -1,9 +1,5 @@
 # Xcode-AutoLazyLoad
 
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
-
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?style=flat-square)
 
 ## Xcode-AutoLazyLoad使用
 
