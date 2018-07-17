@@ -1,6 +1,6 @@
 # Xcode-AutoLazyLoad
 
-[![npm](https://img.shields.io/packagist/l/doctrine/orm.svg)]()
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)]()
 
 ## Xcode-AutoLazyLoad使用
 
