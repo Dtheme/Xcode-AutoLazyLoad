@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
 - (void)performCommandWithInvocation:(XCSourceEditorCommandInvocation *)invocation completionHandler:(void (^)(NSError * _Nullable nilOrError))completionHandler
 {
 
-//    NSLog(@"跑一个看看");
+
     self.invocation = invocation;
 //    NSLog(@"%@",invocation.buffer.lines);
     for (XCSourceTextRange *range in self.invocation.buffer.selections) {
@@ -53,7 +53,6 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
                 }
                 [self.invocation.buffer.lines insertObject:getterResult atIndex:implementationEndLine];
             }else{
-//                NSLog(@"目标语言是Swift");
                 //swift
                 getterResult = [self createSwiftGetter:string];
                 if (!getterResult || [getterResult isEqualToString:@""]) {
@@ -162,7 +161,7 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
 - (NSString *)targetString:(NSString *)string getStringWithOutSpaceBetweenString1:(NSString *)string1 string2:(NSString *)string2{
     NSRange range=[string rangeOfString:string1];
     if(range.location==NSNotFound){
-//        NSLog(@"错误的格式或者对象");
+//错误的格式或者对象
         return @"";
     }
     NSString * tempString = [string substringFromIndex:(range.location + range.length)];
@@ -190,7 +189,6 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
     NSRange LeftRange = [interfaceLine rangeOfString:@"("];
     NSRange classWithSpaceRange = NSMakeRange(interfaceRange.location + interfaceRange.length, interfaceLine.length - interfaceRange.length - interfaceRange.location - (interfaceLine.length - LeftRange.location));
     NSString * removeSpace = [interfaceLine substringWithRange:classWithSpaceRange];
-//    NSLog(@"%@",removeSpace);
     NSString * classStr = [removeSpace stringByReplacingOccurrencesOfString:@" " withString:@""];
     BOOL kHasfindLine = NO;
     for (NSInteger i = endLine; i < lines.count; i++) {
