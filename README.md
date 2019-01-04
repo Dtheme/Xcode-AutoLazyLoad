@@ -8,7 +8,7 @@
 Xcode 8的插件是以扩展的形式使用的，类似于sifari插件的形式。
 ，在mac中以.app的形式安装，在系统偏好设置-扩展中-选中已经安装的
 
-### 安装
+#### 安装
 
 1. 使用你自己的证书签名AutoLazyLoad
 2. build工程
@@ -19,13 +19,13 @@ Xcode 8的插件是以扩展的形式使用的，类似于sifari插件的形式�
 7. 如果有需要可以去xcode的偏好设置中设置快捷键，我是用`option+'`作为快捷键
 8. 选中你要生成懒加载的属性，按下`option+'`就好啦。
 
-### 移除
+#### 移除
 
 如果不想使用了，在系统的应用程序中删除`lazyLoad.app`，就可以了.
 
 
 
-usage：
+#### usage：
 
 1. Setup Code Signing for Target `AutoLazyLoad` by applying your own Team
 2. Build Target `AutoLazyLoad`
@@ -36,6 +36,6 @@ usage：
 7. add shortcuts if you like, I'm using `option+'`as the shortcuts.
 8. Select the property you want to generate lazy-load code and press `option+'`,done.
 
-remove：
+#### remove：
 
 If you don't need it anymore, Just remove  `AutoLazyLoad.app` from the `../Applications/` folder.
