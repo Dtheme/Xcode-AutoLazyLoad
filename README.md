@@ -4,7 +4,7 @@
 
 
 
-![](./../AutoLazyLoad/gif/lazyload.gif)
+![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/lazyload.gif)
 
 
 
