@@ -58,8 +58,8 @@ typedef NS_ENUM(NSInteger, AdaptLanguageTarget) {
                 if (!getterResult || [getterResult isEqualToString:@""]) {
                     continue;
                 }
-                //找到行号 清除原来的东西 添加懒加载代码
-                NSInteger currentLine = [self findEndLine:self.invocation.buffer.lines selectionEndLine:endLine];
+                //当前选中的行号位置 清除原来的东西 添加懒加载代码
+                NSInteger currentLine = range.start.line;
                 self.invocation.buffer.lines[currentLine] = @"";
                 [self.invocation.buffer.lines insertObject:getterResult atIndex:currentLine];
             }
