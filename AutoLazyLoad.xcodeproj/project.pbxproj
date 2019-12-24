@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		861F014723B1AEAF001684D8 /* PropertyLazyLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F014623B1AEAF001684D8 /* PropertyLazyLoad.m */; };
+		861F014A23B1B07A001684D8 /* EnumLazySwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F014923B1B07A001684D8 /* EnumLazySwitch.m */; };
 		96F33C6D1F62B14A00973AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F33C6C1F62B14A00973AB1 /* AppDelegate.m */; };
 		96F33C701F62B14A00973AB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F33C6F1F62B14A00973AB1 /* main.m */; };
 		96F33C731F62B14A00973AB1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F33C721F62B14A00973AB1 /* ViewController.m */; };
@@ -43,6 +45,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		861F014523B1AEAF001684D8 /* PropertyLazyLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyLazyLoad.h; sourceTree = "<group>"; };
+		861F014623B1AEAF001684D8 /* PropertyLazyLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyLazyLoad.m; sourceTree = "<group>"; };
+		861F014823B1B07A001684D8 /* EnumLazySwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnumLazySwitch.h; sourceTree = "<group>"; };
+		861F014923B1B07A001684D8 /* EnumLazySwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnumLazySwitch.m; sourceTree = "<group>"; };
 		96F33C681F62B14A00973AB1 /* AutoLazyLoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLazyLoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F33C6B1F62B14A00973AB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96F33C6C1F62B14A00973AB1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -138,6 +144,10 @@
 				96F33C8B1F62B15400973AB1 /* SourceEditorExtension.m */,
 				96F33C8D1F62B15400973AB1 /* SourceEditorCommand.h */,
 				96F33C8E1F62B15400973AB1 /* SourceEditorCommand.m */,
+				861F014523B1AEAF001684D8 /* PropertyLazyLoad.h */,
+				861F014623B1AEAF001684D8 /* PropertyLazyLoad.m */,
+				861F014823B1B07A001684D8 /* EnumLazySwitch.h */,
+				861F014923B1B07A001684D8 /* EnumLazySwitch.m */,
 				96F33C901F62B15400973AB1 /* Info.plist */,
 				96F33C881F62B15400973AB1 /* Supporting Files */,
 			);
@@ -198,7 +208,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "段志巍";
+				ORGANIZATIONNAME = dzw;
 				TargetAttributes = {
 					96F33C671F62B14A00973AB1 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -217,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -267,6 +278,8 @@
 			files = (
 				96F33C8C1F62B15400973AB1 /* SourceEditorExtension.m in Sources */,
 				96F33C8F1F62B15400973AB1 /* SourceEditorCommand.m in Sources */,
+				861F014A23B1B07A001684D8 /* EnumLazySwitch.m in Sources */,
+				861F014723B1AEAF001684D8 /* PropertyLazyLoad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +477,7 @@
 				96F33C7E1F62B14A00973AB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96F33C941F62B15400973AB1 /* Build configuration list for PBXNativeTarget "LazyLoad" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +486,7 @@
 				96F33C961F62B15400973AB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

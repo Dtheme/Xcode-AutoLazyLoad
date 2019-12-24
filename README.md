@@ -30,6 +30,12 @@ Xcode 8以后的插件是以扩展的形式使用的，类似于sifari插件的�
 
 
 
+#### 新增功能：
+
+· 将NS_ENUM自动转为switch到剪切板，具体使用参照gif,全选需要生成switch的枚举，按下你的扩展快捷键，将会生成指定的switch到剪切板，其余部分与`propertylazyload`使用一致。
+
+
+
 #### usage：
 
 1. Setup Code Signing for Target `AutoLazyLoad` by applying your own Team
@@ -44,3 +50,10 @@ Xcode 8以后的插件是以扩展的形式使用的，类似于sifari插件的�
 #### remove：
 
 If you don't need it anymore, Just remove  `AutoLazyLoad.app` from the `../Applications/` folder.
+
+
+
+#### add feature： Enum2switch
+
+Translate  `NS_ENUM` into switch，write to Pasterboard.
+· select all  `NS_ENUM`code,run `Enum2switch` shortcuts or choose `Editor-Lazyload-enum2switch` ,switch template code will be in your Pasterboard，you can paste wherever you want.

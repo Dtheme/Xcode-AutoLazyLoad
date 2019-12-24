@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>LazyLoad</string>
+	<string>LazyCode</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -32,7 +32,15 @@
 					<key>XCSourceEditorCommandClassName</key>
 					<string>SourceEditorCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
-					<string>$(PRODUCT_BUNDLE_IDENTIFIER).SourceEditorCommand</string>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).EnumLazySwitch</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>EnumLazySwitch</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>SourceEditorCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).propertyLazyLoad</string>
 					<key>XCSourceEditorCommandName</key>
 					<string>propertyLazyLoad</string>
 				</dict>
