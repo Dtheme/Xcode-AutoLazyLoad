@@ -45,6 +45,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		860736B723B20B3000B6457B /* AutoLazyLoad copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "AutoLazyLoad copy-Info.plist"; path = "/Users/zego/Desktop/hi2Flutter/Xcode-AutoLazyLoad/AutoLazyLoad copy-Info.plist"; sourceTree = "<absolute>"; };
 		861F014523B1AEAF001684D8 /* PropertyLazyLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyLazyLoad.h; sourceTree = "<group>"; };
 		861F014623B1AEAF001684D8 /* PropertyLazyLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyLazyLoad.m; sourceTree = "<group>"; };
 		861F014823B1B07A001684D8 /* EnumLazySwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnumLazySwitch.h; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 				96F33C871F62B15400973AB1 /* LazyLoad */,
 				96F33C841F62B15400973AB1 /* Frameworks */,
 				96F33C691F62B14A00973AB1 /* Products */,
+				860736B723B20B3000B6457B /* AutoLazyLoad copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};

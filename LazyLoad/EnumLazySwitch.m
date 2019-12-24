@@ -23,7 +23,6 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
         endLine = range.end.line;
         NSInteger endColumn = range.end.column;
         
-        
         for (NSInteger index = startLine; index <= endLine ;index ++){
             NSString *line = invocation.buffer.lines[index];
             if (line == nil) {
@@ -34,10 +33,12 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
                 NSRange lineRange = NSMakeRange(0, endColumn);
                 line = [line substringWithRange:lineRange];
             }
+            
             if (index == startLine && line.length > startColumn) {
                 NSRange lineRange = NSMakeRange(startColumn, line.length - startColumn);
                 line = [line substringWithRange:lineRange];
             }
+            
             [selectString appendString:line];
             if (endLine > startLine && index != endLine) {
                 [selectString appendString:@"\n"];
@@ -49,9 +50,6 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
     NSString *finalStr = [self duelWithString:symbolString];
     NSLog(@"finalStr ------\n%@",finalStr);
     [self writePasteboardWithString:finalStr];
-//    if (finalStr.length > 0) {
-//        [invocation.buffer.lines insertObject:finalStr atIndex:endLine + 1];
-//    }
 }
 
 + (NSString *)duelWithString:(NSString *)symbolString{
@@ -114,6 +112,7 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
                 NSLog(@"\n%@",stringFinalF);
                 return stringFinalF;
             }
+            
         }else{
             NSString *begin = @"\nswitch (<#EnumType#>) {\n";
             NSString *end = @"    default:\n        break;\n}\n";
@@ -143,6 +142,6 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
     [aPastenboard clearContents];
     NSData *aData = [aString dataUsingEncoding:NSUTF8StringEncoding];
     [aPastenboard setData:aData forType:NSPasteboardTypeString];
-
+    
 }
 @end
