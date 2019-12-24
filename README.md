@@ -2,9 +2,15 @@
 
 #### demo效果
 
+lazyload：
+
+![](http://wx4.sinaimg.cn/large/9cd3e769gy1ga7qr8uzqug20hg0dracv.gif)
+
+enum2switch
 
 
-![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/lazyload.gif)
+
+![](http://ww3.sinaimg.cn/large/9cd3e769gy1ga7qph5ipkg20g40cpaca.gif)
 
 
 
