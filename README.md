@@ -56,4 +56,5 @@ If you don't need it anymore, Just remove  `AutoLazyLoad.app` from the `../Appli
 #### add feature： Enum2switch
 
 Translate  `NS_ENUM` into switch，write to Pasterboard.
-· select all  `NS_ENUM`code,run `Enum2switch` shortcuts or choose `Editor-Lazyload-enum2switch` ,switch template code will be in your Pasterboard，you can paste wherever you want.
+
+· select all  `NS_ENUM`code,run `Enum2switch` shortcuts or choose `Editor-Lazyload-enum2switch` ,switch template code will be in your Pasterboard，you can paste it wherever you want.
