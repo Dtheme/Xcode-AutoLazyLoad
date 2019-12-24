@@ -23,19 +23,12 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
 
 @implementation PropertyLazyLoad
 
-+ (instancetype)lazyLoadWithInvocation:(XCSourceEditorCommandInvocation *)invocation{
-    PropertyLazyLoad *lazyload = [PropertyLazyLoad new];
-    [PropertyLazyLoad lazyLoadWithInvocation:invocation];
-    return lazyload;
-}
-
-- (void)lazyLoadInvocation:(XCSourceEditorCommandInvocation *)invocation{
-    self.invocation = invocation;
++ (void)lazyLoadWithInvocation:(XCSourceEditorCommandInvocation *)invocation{
     //    NSLog(@"%@",invocation.buffer.lines);
-    for (XCSourceTextRange *range in self.invocation.buffer.selections) {
+    for (XCSourceTextRange *range in invocation.buffer.selections) {
         NSInteger startLine = range.start.line;
         NSInteger endLine   = range.end.line;
-        NSMutableArray<NSString *> * selectLines = [self selectLinesWithStart:startLine endLine:endLine invocation:self.invocation];
+        NSMutableArray<NSString *> * selectLines = [self selectLinesWithStart:startLine endLine:endLine invocation:invocation];
         for (int i = 0 ; i < selectLines.count ; i++) {
             NSString * string = selectLines[i];
             //排除空字符串
@@ -52,11 +45,11 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
             if (target == AdaptLanguageTargetObjc) {
                 //                NSLog(@"目标语言是OC");
                 getterResult = [self createObjcGetter:string];
-                NSInteger implementationEndLine = [self findEndLine:self.invocation.buffer.lines selectionEndLine:endLine];
+                NSInteger implementationEndLine = [self findEndLine:invocation.buffer.lines selectionEndLine:endLine];
                 if (implementationEndLine <= 1) {
                     continue;
                 }
-                [self.invocation.buffer.lines insertObject:getterResult atIndex:implementationEndLine];
+                [invocation.buffer.lines insertObject:getterResult atIndex:implementationEndLine];
             }else{
                 //swift
                 getterResult = [self createSwiftGetter:string];
@@ -65,16 +58,20 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
                 }
                 //当前选中的行号位置 清除原来的东西 添加懒加载代码
                 NSInteger currentLine = range.start.line;
-                self.invocation.buffer.lines[currentLine] = @"";
-                [self.invocation.buffer.lines insertObject:getterResult atIndex:currentLine];
+                invocation.buffer.lines[currentLine] = @"";
+                [invocation.buffer.lines insertObject:getterResult atIndex:currentLine];
             }
         }
     }
 }
 
+- (void)lazyLoadInvocation:(XCSourceEditorCommandInvocation *)invocation{
+    
+}
+
 
 //判断是什么语言
-- (AdaptLanguageTarget)typeJudgeWithString:(NSString *)string{
++ (AdaptLanguageTarget)typeJudgeWithString:(NSString *)string{
     
     if ([self targetString:string isContainString:@"@property"]) {
         //        NSLog(@"1 oc");
@@ -88,7 +85,7 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
 }
 
 #pragma mark - 写objcGetter
-- (NSString*)createObjcGetter:(NSString*)sourceStr{
++ (NSString*)createObjcGetter:(NSString*)sourceStr{
     NSString *resultStr;
     NSString *className = [self targetString:sourceStr getStringWithOutSpaceBetweenString1:@")" string2:@"*"];
     if ([className isEqualToString:@""]) {
@@ -115,7 +112,7 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
     return resultStr;
 }
 
-- (NSString *)createSwiftGetter:(NSString*)sourceStr{
++ (NSString *)createSwiftGetter:(NSString*)sourceStr{
     NSString *resultStr = @"";
     //取类名 有等号或者有option
     NSString * className = @"";
@@ -150,11 +147,11 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
 }
 
 //字符串操作
-- (BOOL)targetString:(NSString *)string isContainString:(NSString *)subString {
++ (BOOL)targetString:(NSString *)string isContainString:(NSString *)subString {
     return [string rangeOfString:subString].location != NSNotFound? YES: NO;
 }
 
-- (NSString *)targetString:(NSString *)string getStringWithOutSpaceBetweenString1:(NSString *)string1 string2:(NSString *)string2{
++ (NSString *)targetString:(NSString *)string getStringWithOutSpaceBetweenString1:(NSString *)string1 string2:(NSString *)string2{
     NSRange range=[string rangeOfString:string1];
     if(range.location==NSNotFound){
         //错误的格式或者对象
@@ -172,7 +169,7 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
 }
 
 //行操作
-- (NSInteger)findEndLine:(NSArray<NSString *> *)lines selectionEndLine:(NSInteger)endLine{
++ (NSInteger)findEndLine:(NSArray<NSString *> *)lines selectionEndLine:(NSInteger)endLine{
     //找interface确认类名
     NSString * interfaceLine = @"";
     for (NSInteger i = endLine; i >= 1; i--) {
@@ -200,7 +197,7 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
     return 0;
 }
 
-- (NSMutableArray<NSString *> *)selectLinesWithStart:(NSInteger)startLine endLine:(NSInteger)endLine invocation:(XCSourceEditorCommandInvocation *)invocation{
++ (NSMutableArray<NSString *> *)selectLinesWithStart:(NSInteger)startLine endLine:(NSInteger)endLine invocation:(XCSourceEditorCommandInvocation *)invocation{
     NSMutableArray * selectLines = [NSMutableArray arrayWithCapacity:endLine-startLine];
     for (NSInteger i = startLine; i<=endLine ; i++) {
         [selectLines addObject:invocation.buffer.lines[i]];

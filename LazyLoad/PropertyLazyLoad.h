@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PropertyLazyLoad : NSObject
 
-+ (instancetype)lazyLoadWithInvocation:(XCSourceEditorCommandInvocation *)invocation;
++ (void)lazyLoadWithInvocation:(XCSourceEditorCommandInvocation *)invocation;
 
 @end
 

@@ -40,9 +40,9 @@
 					<key>XCSourceEditorCommandClassName</key>
 					<string>SourceEditorCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
-					<string>$(PRODUCT_BUNDLE_IDENTIFIER).propertyLazyLoad</string>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).PropertyLazyLoad</string>
 					<key>XCSourceEditorCommandName</key>
-					<string>propertyLazyLoad</string>
+					<string>PropertyLazyLoad</string>
 				</dict>
 			</array>
 			<key>XCSourceEditorExtensionPrincipalClass</key>
