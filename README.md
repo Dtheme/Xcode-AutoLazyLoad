@@ -4,7 +4,7 @@
 
 
 
-![](http://ws2.sinaimg.cn/large/9cd3e769gy1ga7wgxh2cfg20dt0kt4dt.gif)
+![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/lazyload.gif)
 
 
 
