@@ -19,8 +19,6 @@
 
 - (void)performCommandWithInvocation:(XCSourceEditorCommandInvocation *)invocation completionHandler:(void (^)(NSError * _Nullable nilOrError))completionHandler
 {
-    //EnumLazySwitch
-    //propertyLazyLoad
     NSString *identifier = invocation.commandIdentifier;
     if ([identifier hasSuffix:kPropertyLazyLoad]) {
         [PropertyLazyLoad lazyLoadWithInvocation:invocation];

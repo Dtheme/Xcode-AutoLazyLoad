@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045B7C0926983B1400C9064B /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B7C0826983B1400C9064B /* XcodeKit.framework */; };
+		045B7C0A26983B1400C9064B /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 045B7C0826983B1400C9064B /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		861F014723B1AEAF001684D8 /* PropertyLazyLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F014623B1AEAF001684D8 /* PropertyLazyLoad.m */; };
 		861F014A23B1B07A001684D8 /* EnumLazySwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F014923B1B07A001684D8 /* EnumLazySwitch.m */; };
 		96F33C6D1F62B14A00973AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F33C6C1F62B14A00973AB1 /* AppDelegate.m */; };
@@ -31,6 +33,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		045B7C0B26983B1400C9064B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				045B7C0A26983B1400C9064B /* XcodeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96F33C971F62B15400973AB1 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -45,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		045B7C0826983B1400C9064B /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		860736B723B20B3000B6457B /* AutoLazyLoad copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "AutoLazyLoad copy-Info.plist"; path = "/Users/zego/Desktop/hi2Flutter/Xcode-AutoLazyLoad/AutoLazyLoad copy-Info.plist"; sourceTree = "<absolute>"; };
 		861F014523B1AEAF001684D8 /* PropertyLazyLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyLazyLoad.h; sourceTree = "<group>"; };
 		861F014623B1AEAF001684D8 /* PropertyLazyLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyLazyLoad.m; sourceTree = "<group>"; };
@@ -82,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96F33C861F62B15400973AB1 /* Cocoa.framework in Frameworks */,
+				045B7C0926983B1400C9064B /* XcodeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +149,7 @@
 		96F33C841F62B15400973AB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				045B7C0826983B1400C9064B /* XcodeKit.framework */,
 				96F33C851F62B15400973AB1 /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -193,6 +209,7 @@
 				96F33C7F1F62B15400973AB1 /* Sources */,
 				96F33C801F62B15400973AB1 /* Frameworks */,
 				96F33C811F62B15400973AB1 /* Resources */,
+				045B7C0B26983B1400C9064B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -400,7 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 97KXK82D47;
 				INFOPLIST_FILE = AutoLazyLoad/Info.plist;
@@ -415,7 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 97KXK82D47;
 				INFOPLIST_FILE = AutoLazyLoad/Info.plist;
@@ -430,7 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = LazyLoad/LazyLoad.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 97KXK82D47;
 				INFOPLIST_FILE = LazyLoad/Info.plist;
@@ -447,7 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = LazyLoad/LazyLoad.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 97KXK82D47;
 				INFOPLIST_FILE = LazyLoad/Info.plist;
