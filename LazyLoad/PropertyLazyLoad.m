@@ -77,7 +77,7 @@ NSString * const kPropertyLazyLoad = @"PropertyLazyLoad";
         //        NSLog(@"1 oc");
         return AdaptLanguageTargetObjc;
     }
-    if([self targetString:string isContainString:@"var "]){
+    if([self targetString:string isContainString:@"var "]||[self targetString:string isContainString:@"let "]){
         //        NSLog(@"2 swift");
         return AdaptLanguageTargetSwift;
     }

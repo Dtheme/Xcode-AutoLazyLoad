@@ -17,18 +17,43 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
     NSString *symbolString = @"";
     NSMutableString *selectString = [[NSMutableString alloc] init];
     NSInteger endLine = 0;
+    //comments
+    NSMutableArray *comments = [NSMutableArray array];
     for (XCSourceTextRange *range in invocation.buffer.selections) {
         NSInteger startLine = range.start.line;
         NSInteger startColumn = range.start.column;
         endLine = range.end.line;
         NSInteger endColumn = range.end.column;
-        
         for (NSInteger index = startLine; index <= endLine ;index ++){
             NSString *line = invocation.buffer.lines[index];
             if (line == nil) {
-                line = @"";
+                line = @" ";
             }
-            
+            if ([line containsString:@"//"]||[line containsString:@"/*"]) {
+                NSArray *codeAnalysis;
+                if ([line containsString:@"*/"]) {//注释使用的是 '/* */'
+                    codeAnalysis = [line componentsSeparatedByString:@"/*"];
+                }else if ([line containsString:@"///"]) {//注释使用的是 '///'
+                    line = [line stringByReplacingOccurrencesOfString:@"///" withString:@"//"];
+                    codeAnalysis = [line componentsSeparatedByString:@"//"];
+                }else{//注释使用的是 '//'
+                    codeAnalysis = [line componentsSeparatedByString:@"//"];
+                }
+                NSString *commentString = codeAnalysis.lastObject;
+                if (codeAnalysis.count==2) {
+                    [comments addObject:codeAnalysis.count>0?[[commentString stringByReplacingOccurrencesOfString:@"/*" withString:@""] stringByReplacingOccurrencesOfString:@"*/" withString:@""]:@""];
+                    line = codeAnalysis.count>0?[codeAnalysis.firstObject stringByReplacingOccurrencesOfString:@" " withString:@""]:line;
+                }else{
+                    if ([commentString containsString:@"*/"]) {// 注释
+                        [comments addObject:codeAnalysis.count>0?
+                         [[[commentString stringByReplacingOccurrencesOfString:@"/*" withString:@""] stringByReplacingOccurrencesOfString:@"*/" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""]:@""];
+                        line = @"";
+                    }else{ //代码
+                        line = commentString;
+                        [comments addObject:@""];
+                    }
+                }
+            }
             if (index == endLine && line.length >= endColumn) {
                 NSRange lineRange = NSMakeRange(0, endColumn);
                 line = [line substringWithRange:lineRange];
@@ -47,12 +72,11 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
     }
     symbolString = [selectString copy];
     
-    NSString *finalStr = [self duelWithString:symbolString];
-    NSLog(@"finalStr ------\n%@",finalStr);
+    NSString *finalStr = [self duelWithString:symbolString comments:comments];
     [self writePasteboardWithString:finalStr];
 }
 
-+ (NSString *)duelWithString:(NSString *)symbolString{
++ (NSString *)duelWithString:(NSString *)symbolString comments:(NSArray *)comments{
     
     if (([[symbolString lowercaseString] rangeOfString:@"enum "].length > 0) || [[symbolString lowercaseString] rangeOfString:@"ns_enum"].length > 0){
         
@@ -60,7 +84,6 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
         if ([[symbolString lowercaseString] rangeOfString:@"    case "].length > 0){
             isSwift = YES;
         }
-        NSLog(@"symbolString ---- \n%@",symbolString);
         symbolString = [[symbolString componentsSeparatedByString:@"::"] lastObject];
         
         symbolString = [symbolString stringByReplacingOccurrencesOfString:@"    case " withString:@""];
@@ -83,16 +106,10 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
         if (range.location != NSNotFound) {
             symbolString = [symbolString substringWithRange:range];
         }
-        
-        NSLog(@"symbolString ---- \n%@",symbolString);
-        
         symbolString = [symbolString stringByReplacingOccurrencesOfString:@"{" withString:@""];
         symbolString = [symbolString stringByReplacingOccurrencesOfString:@"}" withString:@""];
         
-        NSLog(@"symbol-----\n%@\n",symbolString);
-        
         NSArray *symbols = [symbolString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@","]];
-        NSLog(@"symbols-----\n%@\n",symbols);
         
         if (isSwift) {
             NSString *begin = @"\nswitch <#value#> {\n";
@@ -119,17 +136,25 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
             
             NSMutableString *stringFinal = [[NSMutableString alloc] init];
             for (NSUInteger index = 0;index < [symbols count];index ++) {
+                //case
                 NSString *sub = [symbols objectAtIndex:index];
-                sub = [sub stringByReplacingOccurrencesOfString:@"    " withString:@""];
+                if (sub.length <= 0) {
+                    continue;
+                }
+                sub = [[sub stringByReplacingOccurrencesOfString:@"    " withString:@""] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                //注释
+                NSString *singleComment = comments[index];
+                if (![singleComment isEqual:@""]) {//没有注释
+                    singleComment = [NSString stringWithFormat:@"//%@",singleComment];
+                }
                 if (sub.length > 0) {
-                    NSString *caseStr = [NSString stringWithFormat:@"    case %@:\n        <#statements#>\n        break;\n",sub];
+                    NSString *caseStr = [NSString stringWithFormat:@"    case %@:%@        <#statements#>\n        break;\n",sub,singleComment];
                     [stringFinal appendString:caseStr];
                 }
             }
             
             if (stringFinal.length > 0) {
                 NSString *stringFinalF = [NSString stringWithFormat:@"%@%@%@",begin,stringFinal,end];
-                NSLog(@"\n%@",stringFinalF);
                 return stringFinalF;
             }
         }
