@@ -6,7 +6,7 @@
 
 ##### AutoLazyLoad 
 
-.h声明的属性自动生成懒加载的setter方法模板
+.h声明的属性自动生成懒加载方法模板
 
 ![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/lazyload.gif)
 
