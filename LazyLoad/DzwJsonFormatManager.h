@@ -2,8 +2,8 @@
 //  DzwJsonFormatManager.h
 //  LazyLoad
 //
-//  Created by dzw on 21/1/28.
-//  Copyright (c) 2021年 dzw. All rights reserved.
+//  Created by dzw on 20/11/28.
+//  Copyright (c) 2020年 dzw. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
