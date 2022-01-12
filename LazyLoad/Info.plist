@@ -32,6 +32,14 @@
 					<key>XCSourceEditorCommandClassName</key>
 					<string>SourceEditorCommand</string>
 					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).JsonLazyProperty</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>JsonLazyProperty</string>
+				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>SourceEditorCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
 					<string>$(PRODUCT_BUNDLE_IDENTIFIER).EnumLazySwitch</string>
 					<key>XCSourceEditorCommandName</key>
 					<string>EnumLazySwitch</string>

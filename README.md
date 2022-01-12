@@ -7,6 +7,8 @@
 ![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/lazyload.gif)
 ![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/quickEnum.gif)
 
+![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/json2property.gif)
+
 
 
 打开Xcode工程，选中指定需要懒加载的那一行，在系统上面的toolbar中选中选择edit-AutoLazyLoad，执行指定的插件指令，或者在xcode的偏好设置中添加你喜欢的快捷键，选中需要懒加载的属性那一行快捷键生成属性的懒加载代码。
@@ -31,11 +33,13 @@ Xcode 8以后的插件是以扩展的形式使用的，类似于sifari插件的�
 
 
 
-#### 新增功能：
+#### 目前支持的功能：
 
-· 将NS_ENUM自动转为switch到剪切板，具体使用参照gif,全选需要生成switch的枚举，按下你的扩展快捷键，将会生成指定的switch到剪切板，其余部分与`propertylazyload`使用一致。
+1. .h声明的属性自动生成懒加载的setter方法模板
 
+2. 将NS_ENUM自动转为switch到剪切板，具体使用参照gif,全选需要生成switch的枚举，按下你的扩展快捷键，将会生成指定的switch到剪切板，其余部分与`propertylazyload`使用一致。
 
+3. 通过json文本生成属性声明模板
 
 #### usage：
 
@@ -54,8 +58,10 @@ If you don't need it anymore, Just remove  `AutoLazyLoad.app` from the `../Appli
 
 
 
-#### add feature： Enum2switch
+#### features： 
 
-Translate  `NS_ENUM` into switch，write to Pasterboard.
+1. AutoLazyLoad
+2. Enum2switch
+2. JSON2Property
 
-· select all  `NS_ENUM`code,run `Enum2switch` shortcuts or choose `Editor-Lazyload-enum2switch` ,switch template code will be in your Pasterboard，you can paste it wherever you want.
+ ![5f9c4cacd10ae74293566d4a908b5441](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/5f9c4cacd10ae74293566d4a908b5441.png)
