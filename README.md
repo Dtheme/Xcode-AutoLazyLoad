@@ -27,6 +27,7 @@
 Xcode 8以后的插件是以扩展的形式使用的，类似于sifari插件的形式。
 ，在mac中以.app的形式安装，在系统偏好设置-扩展中-选中已经安装的
 
+
 #### 安装
 
 1. 使用你自己的证书签名AutoLazyLoad
@@ -42,6 +43,11 @@ Xcode 8以后的插件是以扩展的形式使用的，类似于sifari插件的�
 
 如果不想使用了，在系统的应用程序中删除`lazyLoad.app`，就可以了.
 
+#### features： 
+
+1. AutoLazyLoad
+2. Enum2switch
+2. JSON2Property
 
 
 #### usage：
@@ -59,11 +65,4 @@ Xcode 8以后的插件是以扩展的形式使用的，类似于sifari插件的�
 
 If you don't need it anymore, Just remove  `AutoLazyLoad.app` from the `../Applications/` folder.
 
-
-
-#### features： 
-
-1. AutoLazyLoad
-2. Enum2switch
-2. JSON2Property
 
