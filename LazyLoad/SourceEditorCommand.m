@@ -13,7 +13,8 @@
 #import <AppKit/AppKit.h>
 #import "DzwClassInfo.h"
 #import "JsonLazyProperty.h"
-
+#import "EnumLazyIfelse.h"
+#import "Toast.h"
 @interface SourceEditorCommand ()
 @property (nonatomic) BOOL isSwift;
 @property (nonatomic, strong) XCSourceTextBuffer *buffer;
@@ -25,12 +26,15 @@
 - (void)performCommandWithInvocation:(XCSourceEditorCommandInvocation *)invocation completionHandler:(void (^)(NSError * _Nullable nilOrError))completionHandler
 {
     NSString *identifier = invocation.commandIdentifier;
-    if ([identifier hasSuffix:kPropertyLazyLoad]) {
+    Toast(@"---- : 【%@】",identifier);
+    if ([identifier containsString:kPropertyLazyLoad]) {
         [PropertyLazyLoad lazyLoadWithInvocation:invocation];
-    }else if ([identifier hasSuffix:kEnumLazySwitch]) {
+    }else if ([identifier containsString:kEnumLazySwitch]) {
         [EnumLazySwitch enum2Switch:invocation];
-    }else if ([identifier hasSuffix:kJsonLazyProperty]){
+    }else if ([identifier containsString:kJsonLazyProperty]){
         [JsonLazyProperty JSON2Property:invocation completionHandler:completionHandler];
+    }else if ([identifier containsString:kEnumLazyIfelse]){
+        [EnumLazyIfelse enum2ifelse:invocation];
     }
     completionHandler(nil);
 }

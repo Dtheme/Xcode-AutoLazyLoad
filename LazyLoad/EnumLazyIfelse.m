@@ -1,20 +1,20 @@
 //
-//  EnumLazySwitch.m
+//  EnumLazyIfelse.m
 //  LazyLoad
 //
-//  Created by dzw on 2019/12/24.
-//  Copyright © 2019 dzw. All rights reserved.
+//  Created by dzw on 2024/7/12.
+//  Copyright © 2024 dzw. All rights reserved.
 //
 
-#import "EnumLazySwitch.h"
+#import "EnumLazyIfelse.h"
 #import <Cocoa/Cocoa.h>
-#import "Toast.h"
 
-NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
-@implementation EnumLazySwitch
+NSString * _Nonnull const kEnumLazyIfelse = @"EnumLazyIfelse";
 
-+ (void)enum2Switch:(XCSourceEditorCommandInvocation *)invocation{
-    NSLog(@"enum2Switch:----  【%@】",invocation);
+@implementation EnumLazyIfelse
+
++ (void)enum2ifelse:(XCSourceEditorCommandInvocation *)invocation{
+    NSLog(@"enum2ifelse:----  【%@】",invocation);
     NSString *symbolString = @"";
     NSMutableString *selectString = [[NSMutableString alloc] init];
     NSInteger endLine = 0;
@@ -74,7 +74,6 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
         }
     }
     symbolString = [selectString copy];
-    Toast(@"a=====:%@",symbolString);
     if(symbolString.length != 0){
         NSString *finalStr = [self duelWithString:symbolString comments:comments];
         [self writePasteboardWithString:finalStr];
@@ -125,27 +124,17 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
         NSArray *symbols = [symbolString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@","]];
         
         if (isSwift) {
-            NSString *begin = @"\nswitch <#value#> {\n";
-            NSString *end = @"    default:\n}\n";
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:@"解析失败"];
+            [alert setInformativeText:[@"" stringByAppendingFormat:@"暂未支持swift"]];
+            [alert addButtonWithTitle:@"好的"];
+            alert.window.level = NSStatusWindowLevel;
             
-            NSMutableString *stringFinal = [[NSMutableString alloc] init];
-            for (NSUInteger index = 0;index < [symbols count];index ++) {
-                NSString *sub = [symbols objectAtIndex:index];
-                if (sub.length > 0) {
-                    NSString *caseStr = [NSString stringWithFormat:@"    case .%@:\n<#code#>\n",sub];
-                    [stringFinal appendString:caseStr];
-                }
-            }
-            
-            if (stringFinal.length > 0) {
-                NSString *stringFinalF = [NSString stringWithFormat:@"%@%@%@",begin,stringFinal,end];
-                NSLog(@"\n%@",stringFinalF);
-                return stringFinalF;
-            }
+            [alert.window makeKeyAndOrderFront:alert.window];
             
         }else{
-            NSString *begin = @"\nswitch (<#EnumType#>) {\n";
-            NSString *end = @"    default:\n        break;\n}\n";
+            NSString *begin = @"\nif (<#EnumType#>) {\n}";
+            NSString *end = @"else:\n\t{\n}\n";
             
             NSMutableString *stringFinal = [[NSMutableString alloc] init];
             for (NSUInteger index = 0;index < [symbols count];index ++) {
@@ -160,8 +149,8 @@ NSString * _Nonnull const kEnumLazySwitch = @"EnumLazySwitch";
                 if (![singleComment isEqual:@""]) {//没有注释
                     singleComment = [NSString stringWithFormat:@"//%@",singleComment];
                 }
-                if (sub.length > 0) {
-                    NSString *caseStr = [NSString stringWithFormat:@"\tcase %@:%@\n\t{\n\t\t<#statements#>\n\t}\n\t\tbreak;\n",sub,singleComment];
+                if (sub.length > 0) {//尾部增加注释
+                    NSString *caseStr = [NSString stringWithFormat:@"else if (<#EnumType#> == %@){%@\n\t\t<#statements#>\n}",sub,singleComment];
                     [stringFinal appendString:caseStr];
                 }
             }

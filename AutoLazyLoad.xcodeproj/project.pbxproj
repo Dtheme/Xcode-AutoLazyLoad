@@ -12,6 +12,8 @@
 		045B7C0926983B1400C9064B /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B7C0826983B1400C9064B /* XcodeKit.framework */; };
 		045B7C0A26983B1400C9064B /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 045B7C0826983B1400C9064B /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04CB75EE278D25AD0024860D /* JsonLazyProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB75ED278D25AD0024860D /* JsonLazyProperty.m */; };
+		781ED73A2C412ECB00FDBEC2 /* EnumLazyIfelse.m in Sources */ = {isa = PBXBuildFile; fileRef = 781ED7392C412ECB00FDBEC2 /* EnumLazyIfelse.m */; };
+		781ED73E2C41364E00FDBEC2 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 781ED73D2C41364E00FDBEC2 /* Toast.m */; };
 		861F014723B1AEAF001684D8 /* PropertyLazyLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F014623B1AEAF001684D8 /* PropertyLazyLoad.m */; };
 		861F014A23B1B07A001684D8 /* EnumLazySwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 861F014923B1B07A001684D8 /* EnumLazySwitch.m */; };
 		96F33C6D1F62B14A00973AB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F33C6C1F62B14A00973AB1 /* AppDelegate.m */; };
@@ -68,7 +70,10 @@
 		045B7C0826983B1400C9064B /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		04CB75EC278D25AD0024860D /* JsonLazyProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonLazyProperty.h; sourceTree = "<group>"; };
 		04CB75ED278D25AD0024860D /* JsonLazyProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonLazyProperty.m; sourceTree = "<group>"; };
-		860736B723B20B3000B6457B /* AutoLazyLoad copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "AutoLazyLoad copy-Info.plist"; path = "/Users/zego/Desktop/hi2Flutter/Xcode-AutoLazyLoad/AutoLazyLoad copy-Info.plist"; sourceTree = "<absolute>"; };
+		781ED7382C412ECB00FDBEC2 /* EnumLazyIfelse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnumLazyIfelse.h; sourceTree = "<group>"; };
+		781ED7392C412ECB00FDBEC2 /* EnumLazyIfelse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnumLazyIfelse.m; sourceTree = "<group>"; };
+		781ED73C2C41364E00FDBEC2 /* Toast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
+		781ED73D2C41364E00FDBEC2 /* Toast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
 		861F014523B1AEAF001684D8 /* PropertyLazyLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertyLazyLoad.h; sourceTree = "<group>"; };
 		861F014623B1AEAF001684D8 /* PropertyLazyLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertyLazyLoad.m; sourceTree = "<group>"; };
 		861F014823B1B07A001684D8 /* EnumLazySwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnumLazySwitch.h; sourceTree = "<group>"; };
@@ -143,6 +148,24 @@
 			name = EnumLazySwitch;
 			sourceTree = "<group>";
 		};
+		781ED73B2C41363D00FDBEC2 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				781ED73C2C41364E00FDBEC2 /* Toast.h */,
+				781ED73D2C41364E00FDBEC2 /* Toast.m */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		781ED73F2C413C8000FDBEC2 /* EnumLazyIfelse */ = {
+			isa = PBXGroup;
+			children = (
+				781ED7382C412ECB00FDBEC2 /* EnumLazyIfelse.h */,
+				781ED7392C412ECB00FDBEC2 /* EnumLazyIfelse.m */,
+			);
+			name = EnumLazyIfelse;
+			sourceTree = "<group>";
+		};
 		96F33C5F1F62B14A00973AB1 = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +173,6 @@
 				96F33C871F62B15400973AB1 /* LazyLoad */,
 				96F33C841F62B15400973AB1 /* Frameworks */,
 				96F33C691F62B14A00973AB1 /* Products */,
-				860736B723B20B3000B6457B /* AutoLazyLoad copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +220,8 @@
 		96F33C871F62B15400973AB1 /* LazyLoad */ = {
 			isa = PBXGroup;
 			children = (
+				781ED73F2C413C8000FDBEC2 /* EnumLazyIfelse */,
+				781ED73B2C41363D00FDBEC2 /* Tool */,
 				043D519E278D6EB000092D20 /* PropertyLazyLoad */,
 				043D519F278D6EC300092D20 /* EnumLazySwitch */,
 				043D519A278D6D2B00092D20 /* JsonLazyProperty */,
@@ -334,11 +358,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				781ED73A2C412ECB00FDBEC2 /* EnumLazyIfelse.m in Sources */,
 				043D5199278D6D2700092D20 /* DzwClassInfo.m in Sources */,
 				043D5196278D6D1F00092D20 /* DzwJsonFormatManager.m in Sources */,
 				04CB75EE278D25AD0024860D /* JsonLazyProperty.m in Sources */,
 				96F33C8C1F62B15400973AB1 /* SourceEditorExtension.m in Sources */,
 				96F33C8F1F62B15400973AB1 /* SourceEditorCommand.m in Sources */,
+				781ED73E2C41364E00FDBEC2 /* Toast.m in Sources */,
 				861F014A23B1B07A001684D8 /* EnumLazySwitch.m in Sources */,
 				861F014723B1AEAF001684D8 /* PropertyLazyLoad.m in Sources */,
 			);

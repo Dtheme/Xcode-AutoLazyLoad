@@ -52,6 +52,14 @@
 					<key>XCSourceEditorCommandName</key>
 					<string>PropertyLazyLoad</string>
 				</dict>
+				<dict>
+					<key>XCSourceEditorCommandClassName</key>
+					<string>SourceEditorCommand</string>
+					<key>XCSourceEditorCommandIdentifier</key>
+					<string>$(PRODUCT_BUNDLE_IDENTIFIER).EnumLazyIfelse</string>
+					<key>XCSourceEditorCommandName</key>
+					<string>EnumLazyIfelse</string>
+				</dict>
 			</array>
 			<key>XCSourceEditorExtensionPrincipalClass</key>
 			<string>SourceEditorExtension</string>
@@ -60,6 +68,6 @@
 		<string>com.apple.dt.Xcode.extension.source-editor</string>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017年 段志巍. All rights reserved.</string>
+	<string>Copyright © 2024年 段志巍. All rights reserved.</string>
 </dict>
 </plist>

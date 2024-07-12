@@ -33,6 +33,7 @@ NSString * _Nonnull const kJsonRootClassName = @"kJsonRootClassName";
     for (NSInteger i=range.start.line; i<=range.end.line; i++) {
         if (i<invocation.buffer.lines.count) {
             jsonString = [NSString stringWithFormat:@"%@%@",jsonString,invocation.buffer.lines[i]];
+            NSLog(@"%@",jsonString);
         }
     }
     if (jsonString.length <= 0) {//没有选中的字符串 取剪切板的json
@@ -66,7 +67,9 @@ NSString * _Nonnull const kJsonRootClassName = @"kJsonRootClassName";
     }
 }
 
-
+- (void)handleJson{
+    
+}
 /**
  *  初始类名，RootClass/JSON为数组/创建文件与否
  *
