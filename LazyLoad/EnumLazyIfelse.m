@@ -18,8 +18,6 @@ NSString * _Nonnull const kEnumLazyIfelse = @"EnumLazyIfelse";
     NSString *symbolString = @"";
     NSMutableString *selectString = [[NSMutableString alloc] init];
     NSInteger endLine = 0;
-    //comments
-    NSMutableArray *comments = [NSMutableArray array];
     for (XCSourceTextRange *range in invocation.buffer.selections) {
         NSInteger startLine = range.start.line;
         NSInteger startColumn = range.start.column;
@@ -42,20 +40,11 @@ NSString * _Nonnull const kEnumLazyIfelse = @"EnumLazyIfelse";
                 }
                 NSString *commentString = codeAnalysis.lastObject;
                 if (codeAnalysis.count==2) {
-                    [comments addObject:codeAnalysis.count>0?[[commentString stringByReplacingOccurrencesOfString:@"/*" withString:@""] stringByReplacingOccurrencesOfString:@"*/" withString:@""]:@""];
                     line = codeAnalysis.count>0?[codeAnalysis.firstObject stringByReplacingOccurrencesOfString:@" " withString:@""]:line;
                 }else{
-                    if ([commentString containsString:@"*/"]) {// 注释
-                        [comments addObject:codeAnalysis.count>0?
-                         [[[commentString stringByReplacingOccurrencesOfString:@"/*" withString:@""] stringByReplacingOccurrencesOfString:@"*/" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""]:@""];
-                        line = @"";
-                    }else{ //代码
-                        line = commentString;
-                        [comments addObject:@""];
-                    }
                 }
             }else{
-                [comments addObject:@""];
+
             }
             if (index == endLine && line.length >= endColumn) {
                 NSRange lineRange = NSMakeRange(0, endColumn);
@@ -75,7 +64,7 @@ NSString * _Nonnull const kEnumLazyIfelse = @"EnumLazyIfelse";
     }
     symbolString = [selectString copy];
     if(symbolString.length != 0){
-        NSString *finalStr = [self duelWithString:symbolString comments:comments];
+        NSString *finalStr = [self duelWithString:symbolString ];
         [self writePasteboardWithString:finalStr];
     }else{
         NSAlert *alert = [[NSAlert alloc] init];
@@ -88,7 +77,7 @@ NSString * _Nonnull const kEnumLazyIfelse = @"EnumLazyIfelse";
     }
 }
 
-+ (NSString *)duelWithString:(NSString *)symbolString comments:(NSArray *)comments{
++ (NSString *)duelWithString:(NSString *)symbolString{
     
     if (([[symbolString lowercaseString] rangeOfString:@"enum "].length > 0) || [[symbolString lowercaseString] rangeOfString:@"ns_enum"].length > 0){
         
@@ -133,8 +122,9 @@ NSString * _Nonnull const kEnumLazyIfelse = @"EnumLazyIfelse";
             [alert.window makeKeyAndOrderFront:alert.window];
             
         }else{
-            NSString *begin = @"\nif (<#EnumType#>) {\n}";
-            NSString *end = @"else:\n\t{\n}\n";
+            NSString *first = [symbols objectAtIndex:0];
+            NSString *ifStr = [NSString stringWithFormat:@"if (<#EnumType#> == %@){\n\t<#statements#>\n}",first];
+            NSString *end = @"else{\n\t<#statements#>}\n";
             
             NSMutableString *stringFinal = [[NSMutableString alloc] init];
             for (NSUInteger index = 0;index < [symbols count];index ++) {
@@ -143,20 +133,20 @@ NSString * _Nonnull const kEnumLazyIfelse = @"EnumLazyIfelse";
                 if (sub.length <= 0) {
                     continue;
                 }
-                sub = [[sub stringByReplacingOccurrencesOfString:@"    " withString:@""] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-                //注释
-                NSString *singleComment = comments[index];
-                if (![singleComment isEqual:@""]) {//没有注释
-                    singleComment = [NSString stringWithFormat:@"//%@",singleComment];
+                if(index == 0){
+                    [stringFinal appendString:ifStr];
+                    continue;
                 }
+                sub = [[sub stringByReplacingOccurrencesOfString:@"    " withString:@""] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                 
                 if (sub.length > 0) {//尾部增加注释
-                    NSString *caseStr = [NSString stringWithFormat:@"else if (<#EnumType#> == %@){%@\n\t\t<#statements#>\n}",sub,singleComment];
+                    NSString *caseStr = [NSString stringWithFormat:@"else if (<#EnumType#> == %@){\n\t<#statements#>\n}",sub];
                     [stringFinal appendString:caseStr];
                 }
             }
             
             if (stringFinal.length > 0) {
-                NSString *stringFinalF = [NSString stringWithFormat:@"%@%@%@",begin,stringFinal,end];
+                NSString *stringFinalF = [NSString stringWithFormat:@"%@%@",stringFinal,end];
                 return stringFinalF;
             }
         }
