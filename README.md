@@ -12,9 +12,13 @@
 
 ##### Enum2switch
 
-将NS_ENUM自动转为switch到剪切板，具体使用参照gif,全选需要生成switch的枚举，按下你的扩展快捷键，将会生成指定的switch到剪切板，其余部分与`propertylazyload`使用一致。
+1. 将NS_ENUM自动转为switch到剪切板，具体使用参照gif,全选需要生成switch的枚举，按下你的扩展快捷键，将会生成指定的switch到剪切板，其余部分与`propertylazyload`使用一致。
 
 ![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/quickEnum.gif)
+
+2. 将NS_ENUM自动转为if_else到剪切板，具体使用参照gif,全选需要生成if_else的枚举，按下你的扩展快捷键，将会生成指定的if_else到剪切板，其他部分与`propertylazyload`使用一致。
+
+ ![](https://github.com/Dtheme/Xcode-AutoLazyLoad/blob/master/gif/quickEnum2.gif)
 
 ##### JSON2Property
 
